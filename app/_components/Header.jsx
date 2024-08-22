@@ -1,50 +1,68 @@
 import Link from "next/link";
-import { Button } from ".";
+import { Button, Dropdown, HamburgerMenu } from ".";
 import { FaArrowRightLong, FaAngleDown } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { IoMdClose } from "react-icons/io";
+
+import { dropdownData } from "../data";
+import { useState } from "react";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header className="flex justify-between items-center py-4 border-b">
-      <div className="flex items-center">
+    <header className="flex justify-between items-center py-4 border-b sticky top-0 bg-white">
+     <div className="flex items-center">
         <Link href="/" className="text-3xl font-bold text-purple">
           ShopDigest
         </Link>
-        <div class="border-l border-gray-300 h-7 mx-4"></div>
+        <div className="border-l border-gray-300 h-7 mx-4"></div>
 
-        <div className="flex items-center gap-2">
+      
+        <div className="lg:flex hidden items-center gap-2 cursor-pointer relative group ">
           <Link
             href="/"
             className="text-lg font-semibold text-secondaryGrayDark"
           >
             Shopify
           </Link>
-
-          <IoMdArrowDropdown className="text-gray-500" size={20} />
+          <IoMdArrowDropdown className="text-gray-500 group-hover:rotate-180" size={20} />
+         
+          <Dropdown className="group-hover:block hidden" items={dropdownData.shopify}/>
+     
+       
         </div>
       </div>
 
       {/* Center: Navigation */}
-      <nav className="hidden lg:flex items-center space-x-8">
-        <div className="flex items-center gap-2">
+      <nav className="hidden lg:flex items-center space-x-8 ">
+        <div className="flex items-center gap-2 relative group">
           <Link
             href="/"
             className="text-lg font-semibold text-secondaryGrayDark"
           >
             Apps
           </Link>
-          <FaAngleDown className="text-gray-500" />
+          <FaAngleDown className="text-gray-500 group-hover:rotate-180" />
+          <Dropdown className="group-hover:block hidden" items={dropdownData.apps}/>
+
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 group relative">
           <Link
             href="/"
             className="text-lg font-semibold text-secondaryGrayDark"
           >
             Themes
           </Link>
-          <FaAngleDown className="text-gray-500" />
+          <FaAngleDown className="text-gray-500 group-hover:rotate-180" />
+          <Dropdown className="group-hover:block hidden" items={dropdownData.apps}/>
+
         </div>
 
         <Link href="/" className="text-lg font-semibold text-primaryGray">
@@ -73,9 +91,15 @@ export default function Header() {
 
         />
       </div>
-      <div className="lg:hidden flex">
-        <RxHamburgerMenu size={30} />
+      <div className="lg:hidden flex z-[9999]">
+        {isMenuOpen ? <IoMdClose size={30}  onClick={handleMenuToggle}/>:  <RxHamburgerMenu size={30} onClick={handleMenuToggle}  />
+}
+     
       </div>
+      {isMenuOpen && (
+        <HamburgerMenu isMenuOpen={isMenuOpen}/>
+     
+      )}
     </header>
   );
 }

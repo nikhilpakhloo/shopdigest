@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Cards, Header, Pagination } from "./_components";
 import useFetch from "@/hooks/useFetch";
 import { useState } from "react";
+import Dropdown from "./_components/Dropdown";
 
 export default function Home() {
 
@@ -49,8 +50,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto px-4 py-8">
+      <div className="max-w-screen-xl mx-auto px-4 py-4">
         <Header />
+     
 
         <div className="flex flex-col py-4 space-y-4 px-4">
           <div>
