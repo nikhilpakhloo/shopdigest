@@ -6,20 +6,29 @@ export default function Loader() {
       {/* header */}
       <div className="flex justify-between items-center py-4 border-b sticky top-0 animate-pulse">
         <div className="flex space-x-4">
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
         </div>
         <div className="flex space-x-4">
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
-          <div className="w-24 h-4 bg-gray-200 rounded-md"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
+          <div className="w-24 h-4 bg-gray-200 rounded-md animate-pulse"></div>
         </div>
         <div className="flex space-x-4">
-        <div className="w-24 h-10 bg-gray-200 rounded-lg"></div>
-        <div className="w-24 h-10 bg-gray-200 rounded-lg"></div>
+        <div className="w-24 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+        <div className="w-24 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
         </div>
+      </div>
+
+      {/* headings */}
+
+      <div className="flex flex-col space-y-4">
+        <div className="bg-gray-200 w-1/2 h-10 animate-pulse"></div>
+        <div className="bg-gray-200 w-3/4 h-5 animate-pulse"></div>
+
+
       </div>
 
       {/* Cards */}
