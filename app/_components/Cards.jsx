@@ -4,14 +4,14 @@ import { BiSolidRightArrowAlt } from "react-icons/bi";
 import { Button } from ".";
 
 export default function Cards({ product }) {
-  console.log(product);
+
 
   const getTruncatedTitle = (title) => {
-    // Split the title into words
+
     const words = title.split(" ");
-    // Take the first three words and join them
+   
     const firstThreeWords = words.slice(0, 3).join(" ");
-    // Truncate to 19 characters
+    
     return firstThreeWords.length > 19
       ? firstThreeWords.slice(0, 19) + "..."
       : firstThreeWords;
