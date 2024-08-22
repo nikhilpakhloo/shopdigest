@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Cards, Header, Pagination } from "./_components";
+import { Cards, Header, Loader, Pagination } from "./_components";
 import useFetch from "@/hooks/useFetch";
 import { useState } from "react";
 import Dropdown from "./_components/Dropdown";
@@ -32,8 +32,9 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-xl font-semibold">Loading products...</p>
+      <div className="flex justify-center  h-screen">
+        <Loader/>
+        
       </div>
     );
   }
