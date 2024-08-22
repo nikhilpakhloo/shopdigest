@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Cards, Header, Loader, Pagination } from "./_components";
 import useFetch from "@/hooks/useFetch";
 import { useState } from "react";
-import Dropdown from "./_components/Dropdown";
 
 export default function Home() {
 
