@@ -26,7 +26,11 @@ export default function Loader() {
 
       <div className="flex flex-col space-y-4">
         <div className="bg-gray-200 w-1/2 h-10 animate-pulse"></div>
+        <div className="flex justify-between">
         <div className="bg-gray-200 w-3/4 h-5 animate-pulse"></div>
+        <div className="bg-gray-200 w-20 h-5 animate-pulse"></div>
+
+        </div>
 
 
       </div>
