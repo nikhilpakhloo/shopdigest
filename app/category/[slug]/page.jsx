@@ -22,6 +22,7 @@ export default async function Page({ params }) {
               width={400} 
               height={400}
               className="object-fit w-full h-full rounded-md"
+              loading='lazy'
               style={{ maxWidth: '400px', maxHeight: '400px' }} 
             />
           </div>
