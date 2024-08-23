@@ -5,7 +5,10 @@ import { getData } from "./lib/fetchProducts";
 export default async function Home() {
   const { products } = await getData();
   const totalLength = products.length;
-  console.log(totalLength);
+  const itemsPerPage = 8;
+
+    const paginatedProducts = products.slice(0, itemsPerPage);
+    console.log(paginatedProducts)
 
   return (
     <>
@@ -34,14 +37,14 @@ export default async function Home() {
         </div>
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 mx-auto place-items-center px-4 ">
-          {products.map((product) => (
+          {paginatedProducts.map((product) => (
             <Cards key={product.id} product={product} />
           ))}
         </div>
 
         {/* pagination */}
         <div className="flex justify-center mt-4">
-          <Pagination totalLength={totalLength} />
+        <Pagination totalLength={totalLength} products={products} itemsPerPage={itemsPerPage} />
         </div>
       </div>
     </>

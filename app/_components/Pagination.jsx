@@ -1,12 +1,18 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
-export default function Pagination({ totalLength }) {
-  const itemsPerPage = 8; 
+export default function Pagination({ totalLength, products, itemsPerPage }) {
   const [current, setCurrent] = useState(1);
+  const [currentItems, setCurrentItems] = useState([]);
 
   const totalPages = Math.ceil(totalLength / itemsPerPage);
+
+  useEffect(() => {
+    const startIndex = (current - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, totalLength);
+    setCurrentItems(products.slice(startIndex, endIndex));
+  }, [current, products, itemsPerPage, totalLength]);
 
   const handlePrevious = () => {
     if (current > 1) {
