@@ -7,7 +7,7 @@ const Dropdown = ({ items, className }) => {
     <div
       className={`w-auto  h-auto bg-white absolute top-8 -right-5 border shadow-lg rounded-md ${className}`}
     >
-      {items.map((item) => (
+      {items.map((item, index) => (
         <>
           <Link
             key={item.id}
