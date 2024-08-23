@@ -1,31 +1,28 @@
 "use client";
 import React, { useState } from 'react';
 import { MdKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { getData } from '../data';
 
-export default function Pagination({ currentPage, totalPages }) {
-  const [current, setCurrent] = useState(currentPage);
-  const [limit] = useState(8); 
-  const totalItems = 20; 
+export default function Pagination({ totalLength }) {
+  const itemsPerPage = 8; 
+  const [current, setCurrent] = useState(1);
+
+  const totalPages = Math.ceil(totalLength / itemsPerPage);
 
   const handlePrevious = () => {
     if (current > 1) {
       setCurrent(current - 1);
-      // Optionally, fetch new data here
     }
   };
 
   const handleNext = () => {
     if (current < totalPages) {
       setCurrent(current + 1);
-      // Optionally, fetch new data here
     }
   };
 
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrent(page);
-      // Optionally, fetch new data here
     }
   };
 
@@ -33,9 +30,11 @@ export default function Pagination({ currentPage, totalPages }) {
     <div className="lg:h-16 rounded-md flex items-center justify-between lg:gap-x-40 border px-6">
       <div className="lg:flex hidden">
         <p className="text-secondaryGrayDark font-medium">
-          Showing <span className="text-primaryGray text-lg font-semibold">{(current - 1) * limit + 1}-{Math.min(current * limit, totalItems)}</span> of <span className="text-primaryGray text-lg font-semibold">{totalItems}</span>
+          Showing <span className="text-primaryGray text-lg font-semibold">
+            {(current - 1) * itemsPerPage + 1} - {Math.min(current * itemsPerPage, totalLength)}
+          </span> of <span className="text-primaryGray text-lg font-semibold">{totalLength}</span>
         </p>
-      </div>  
+      </div>
 
       <div className="border rounded-md lg:flex hidden">
         <button

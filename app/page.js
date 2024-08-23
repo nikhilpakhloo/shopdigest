@@ -41,7 +41,7 @@ export default async function Home() {
 
         {/* pagination */}
         <div className="flex justify-center mt-4">
-          <Pagination />
+          <Pagination totalLength={totalLength} />
         </div>
       </div>
     </>
