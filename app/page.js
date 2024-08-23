@@ -8,7 +8,7 @@ export default async function Home() {
   const itemsPerPage = 8;
 
     const paginatedProducts = products.slice(0, itemsPerPage);
-    console.log(paginatedProducts)
+  
 
   return (
     <>
@@ -37,7 +37,7 @@ export default async function Home() {
         </div>
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 mx-auto place-items-center px-4 ">
-          {paginatedProducts.map((product) => (
+          {products.map((product) => (
             <Cards key={product.id} product={product} />
           ))}
         </div>

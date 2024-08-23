@@ -9,7 +9,7 @@ export default function Error({ error, reset }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen  p-4">
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md w-full">
+      <div className="bg-white p-6 rounded-lg shadow-xl text-center max-w-md w-full">
         <h2 className="text-2xl font-semibold text-red-600 mb-4">Something went wrong!</h2>
         <p className="text-gray-700 mb-6">An unexpected error occurred. Please try again.</p>
         <button
